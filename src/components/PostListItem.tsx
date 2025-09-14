@@ -1,10 +1,14 @@
 import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 import { formatDistanceToNowStrict } from 'date-fns';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { Post } from '../types';
 
+type PostListItemProps = {
+    post: Post;
+};
 
 // Post item component with conditional rendering
-export default function PostListItem ({ post }: { post: any }) {
+export default function PostListItem ({ post }: PostListItemProps) {
   // Helper function to safely format date
   const formatDate = (dateString: string) => {
     try {

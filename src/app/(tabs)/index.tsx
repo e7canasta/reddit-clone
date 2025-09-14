@@ -1,12 +1,15 @@
 import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 
 import PostListItem from '../../components/PostListItem';
+import { Post } from '../../types';
 
 import posts from '../../../assets/data/posts.json';
 
+const typedPosts: Post[] = posts as Post[];
+
 export default function HomeScreen() {
   // Check if posts exist and have items
-  const hasPosts = Array.isArray(posts) && posts.length > 0;
+  const hasPosts = Array.isArray(typedPosts) && typedPosts.length > 0;
   
   if (!hasPosts) {
     return (
@@ -18,7 +21,7 @@ export default function HomeScreen() {
 
   return (
     <FlatList
-      data={posts}
+      data={typedPosts}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => <PostListItem post={item} />}
       contentContainerStyle={styles.listContainer}
