@@ -9,6 +9,7 @@ export default function TabLayout() {
     <Tabs 
       screenOptions={{
         tabBarActiveTintColor: 'black',
+        headerTitleAlign: 'center',
         headerRight: () => (
           <Feather 
           name="log-out" 
